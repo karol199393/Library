@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Book;
+import com.example.demo.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ public class BookService {
 
     private List<String> books = new ArrayList<>();
 
-    public BookService() {
+    public BookService(BookRepository bookRepository) {
         books.add("Book 1");
         books.add("Book 2");
         books.add("Book 3");
@@ -21,5 +23,8 @@ public class BookService {
     }
 
 
+    public Book getById(long id) {
+        return new Book(id, "Book " + id);
+    }
 
 }

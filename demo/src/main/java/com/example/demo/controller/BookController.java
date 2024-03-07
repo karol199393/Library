@@ -1,17 +1,28 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Book;
 import com.example.demo.service.BookService;
+import com.example.demo.service.BookServicev2;
 import com.example.demo.service.UserService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+import java.util.List;
+
+@Controller
 public class BookController {
     BookService bookService;
+    BookServicev2 bookServicev2;
 
-
+    private final List<Book> books = List.of(
+            new Book(1L, "Book 1"),
+            new Book(2L, "Book 2"),
+            new Book(3L, "Book 3")
+    );
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }
@@ -19,5 +30,10 @@ public class BookController {
     @GetMapping("/book/{id}")
     public String getBookById(@PathVariable Long id) {
         return bookService.getBook(id);    }
+
+    @GetMapping("/books")
+    public List<Book> getAllBooks() {
+        return bookServicev2.getAllBooks();
+    }
 
 }
