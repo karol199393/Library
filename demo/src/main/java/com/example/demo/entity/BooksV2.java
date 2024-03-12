@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-
+/*
 @Entity
 @Table(name = "booksv2")
 public class BooksV2 {
@@ -31,3 +31,5 @@ public class BooksV2 {
 
 
 }
+
+ */

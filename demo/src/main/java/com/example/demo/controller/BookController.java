@@ -13,27 +13,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class BookController {
     BookService bookService;
     BookServicev2 bookServicev2;
 
-    private final List<Book> books = List.of(
-            new Book(1L, "Book 1"),
-            new Book(2L, "Book 2"),
-            new Book(3L, "Book 3")
-    );
+
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }
 
     @GetMapping("/book/{id}")
     public String getBookById(@PathVariable Long id) {
-        return bookService.getBook(id);    }
+        return bookService.getById(id).getTitle();  }
 
     @GetMapping("/books")
     public List<Book> getAllBooks() {
         return bookServicev2.getAllBooks();
     }
+
+
 
 }

@@ -3,14 +3,16 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "book")
+@Table(name = "ksiazki")
 public class Book {
     public Book() {
     }
 
-    public Book(long id,String title) {
+    public Book(long id,String title,String author,String isbn) {
         this.id = (int) id;
         this.title = title;
+        this.author = author;
+        this.isbn = isbn;
     }
 
     @Id
@@ -18,6 +20,9 @@ public class Book {
     private int id;
 
     private String title;
+    private String author;
+    private String isbn;
+
 
     public String getTitle() {
         return title;
