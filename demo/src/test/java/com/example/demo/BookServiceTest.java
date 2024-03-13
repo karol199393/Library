@@ -16,7 +16,7 @@ public class BookServiceTest {
     public void testGetById() {
         //Mockowanie zaleznosci
         BookRepository bookRepositoryMock = mock(BookRepository.class);
-        when(bookRepositoryMock.findById(1L)).thenReturn(Optional.of(new Book(1L, "Title")));
+        when(bookRepositoryMock.findById(1L)).thenReturn(Optional.of(new Book(1, "Author", "Sienkiewicz", "ISBN")));
 
         //Testowana metoda z mockowana zaleznoscia
         BookService bookService = new BookService(bookRepositoryMock);

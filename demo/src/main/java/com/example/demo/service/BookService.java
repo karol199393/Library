@@ -11,6 +11,8 @@ import java.util.List;
 public class BookService {
 
 
+
+
     private BookRepository bookRepository;
 
     public BookService(BookRepository bookRepository) {
@@ -25,5 +27,32 @@ public class BookService {
     public Book getById(long id) {
         return bookRepository.findById(id).orElseThrow();
     }
+
+    public Book addBook(Book book) {
+        return bookRepository.save(book);
+    }
+
+    public Book removeBook(long id) {
+        Book book = bookRepository.findById(id).orElseThrow();
+        bookRepository.delete(book);
+        return book;
+    }
+
+    public Book updateBook(long id) {
+        Book book = bookRepository.findById(id).orElseThrow();
+        bookRepository.save(book);
+        return book;
+    }
+
+    public Book patchBook(long id, Book book) {
+        Book bookToUpdate = bookRepository.findById(id).orElseThrow();
+        bookToUpdate.setTitle(book.getTitle());
+        bookToUpdate.setAuthor(book.getAuthor());
+        bookToUpdate.setIsbn(book.getIsbn());
+        bookRepository.save(bookToUpdate);
+        return bookToUpdate;
+    }
+
+
 
 }
