@@ -12,8 +12,6 @@ public class UserService {
     public UserService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
-
-
     public String getUser() {
         return "User";
     }

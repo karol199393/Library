@@ -16,7 +16,6 @@ public class BookController {
     BookService bookService;
     BookServicev2 bookServicev2;
 
-
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }

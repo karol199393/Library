@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
     UserService userService;
-
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -17,6 +16,6 @@ public class UserController {
     @GetMapping("/user")
     public ResponseEntity<String> getUser() {
         return ResponseEntity.status(HttpStatus.OK).body(userService.getUser());
-
     }
+
 }

@@ -10,19 +10,11 @@ import java.util.List;
 @Service
 public class BookService {
 
-
-
-
     private BookRepository bookRepository;
 
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
-
-    /*public String getBook(Long id) {
-        return books.get(id.intValue() - 1);
-    } */
-
 
     public Book getById(long id) {
         return bookRepository.findById(id).orElseThrow();
@@ -52,7 +44,5 @@ public class BookService {
         bookRepository.save(bookToUpdate);
         return bookToUpdate;
     }
-
-
 
 }

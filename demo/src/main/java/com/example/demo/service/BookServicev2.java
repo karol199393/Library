@@ -16,5 +16,4 @@ public class BookServicev2 {
         return bookRepository.findAll();
     }
 
-
 }
